@@ -1,0 +1,32 @@
+import math
+import turtle
+sun = turtle.Turtle()
+mercury = turtle.Turtle()
+venus = turtle.Turtle()
+earth = turtle.Turtle()
+mars = turtle.Turtle()
+saturn = turtle.Turtle()
+colors = ("red", "blue", "yellow", "green", "pink", "black")
+
+def orbit (planet, a, siz, co):
+    b = math.sqrt(a**2-1600)
+    location = a
+    planet.shape("circle")
+    planet.color(colors[co])
+    planet.shapesize(siz, siz, 1)
+    planet.up()
+    planet.goto(location,0)
+    planet.down()
+orbit (sun, -40, 3, 0)
+orbit (mercury, 100, 0.5, 1)
+orbit (venus, 130, 1.0, 2)
+orbit (earth, 150, 1.0, 3)
+orbit (mars, 180, 0.9, 4)
+orbit (saturn, 220, 1.5, 5)
+
+for i in range (3600000):
+    mercury.setposition(100*math.cos(i/100),80*math.sin(i/100))
+    venus.setposition(130*math.cos(i/145),115.3*math.sin(i/145))
+    earth.setposition(150*math.cos(i/184),137.4*math.sin(i/184))
+    mars.setposition(180*math.cos(i/241),170.0*math.sin(i/241))
+    saturn.setposition(220*math.cos(i/326),211.7*math.sin(i/326))
